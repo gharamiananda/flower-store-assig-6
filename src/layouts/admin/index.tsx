@@ -111,7 +111,7 @@ if(!isLoading && !data){
 
                 <Route
                   path="/"
-                  element={<Navigate to="/admin/default" replace />}
+                  element={<Navigate to="/seller/dashboard" replace />}
                 />
               </Routes>
             </div>

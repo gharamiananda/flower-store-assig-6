@@ -21,18 +21,23 @@ useEffect(()=>{setIsMount(true)},[]);
 // return <Navigate to='/auth/sign-in' replace />
 //   }
 
-const {data,isSuccess,isLoading}=useGetMeQuery(undefined);
+// const {data,isSuccess,isLoading}=useGetMeQuery(undefined);
 
-if(isLoading){
- return <p>Loading</p>
-}
+// if(isLoading){
+//  return <p>Loading</p>
+// }
 
-if(!isLoading && !data){
+// if(!isLoading && !data){
   
+// }
+
+
+
+if(!isMount){
+  return <p>Loading.......</p>
 }
 
-
-const userRole=(data?.data?.role as string) ||user?.role
+const userRole=user?.role
 let navigateUrl='/auth/sign-in'
 
 if(userRole==='manager'){
@@ -45,7 +50,6 @@ else if(userRole==='seller'){
 }
 
 
-console.log('data', data,isSuccess)
 
   return (
     <>

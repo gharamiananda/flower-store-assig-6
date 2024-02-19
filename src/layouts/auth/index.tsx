@@ -10,11 +10,11 @@ import { useGetMeQuery } from "../../redux/features/user/userApi";
 
 export default function Auth() {
 const navigate=useNavigate()
-const {data,isSuccess,isLoading}=useGetMeQuery(undefined);
+// const {data,isSuccess,isLoading}=useGetMeQuery(undefined);
 
 
 const user =useAppSelector(selectCurrentUser);
-const userRole=(data?.data?.role as string) ||user?.role
+const userRole=user?.role
 
   console.log('user', user)
   let routes=allRoutes.publicRoutes
@@ -41,7 +41,8 @@ const userRole=(data?.data?.role as string) ||user?.role
 
   useEffect(()=>{
     if(userRole){
-let navigateUrl='/seller/dashboard'
+ let navigateUrl='/seller/dashboard'
+      
 
 if(userRole==='manager'){
   navigateUrl='/manager/dashboard'
