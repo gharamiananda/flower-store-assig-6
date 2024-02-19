@@ -6,7 +6,7 @@ import FixedPlugin from "components/fixedPlugin/FixedPlugin";
 import { useAppSelector } from "../../redux/hooks";
 import { selectCurrentUser } from "../../redux/features/auth/authSlice";
 import { useEffect } from "react";
-import { useGetMeQuery } from "redux/features/user/userApi";
+import { useGetMeQuery } from "../../redux/features/user/userApi";
 
 export default function Auth() {
 const navigate=useNavigate()

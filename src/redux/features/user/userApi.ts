@@ -1,7 +1,7 @@
 
 import { baseApi } from '../../api/baseApi';
 
-const usersApi = baseApi.injectEndpoints({
+export const usersApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getMe: builder.query({
       query: () => ({
