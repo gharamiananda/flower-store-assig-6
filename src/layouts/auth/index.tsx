@@ -6,19 +6,23 @@ import FixedPlugin from "components/fixedPlugin/FixedPlugin";
 import { useAppSelector } from "../../redux/hooks";
 import { selectCurrentUser } from "../../redux/features/auth/authSlice";
 import { useEffect } from "react";
+import { useGetMeQuery } from "redux/features/user/userApi";
 
 export default function Auth() {
 const navigate=useNavigate()
+const {data,isSuccess,isLoading}=useGetMeQuery(undefined);
 
-  const user =useAppSelector(selectCurrentUser);
+
+const user =useAppSelector(selectCurrentUser);
+const userRole=(data?.data?.role as string) ||user?.role
 
   console.log('user', user)
   let routes=allRoutes.publicRoutes
 
-  if(user?.role==='manager'){
+  if(userRole==='manager'){
    routes=allRoutes.managerRroutes
     
-  }else if(user?.role==='seller'){
+  }else if(userRole==='seller'){
     routes=allRoutes.sellerRroutes
 
   }
@@ -36,8 +40,7 @@ const navigate=useNavigate()
   };
 
   useEffect(()=>{
-    if(user?._id){
-      const userRole=(user?.role as string)
+    if(userRole){
 let navigateUrl='/seller/dashboard'
 
 if(userRole==='manager'){
