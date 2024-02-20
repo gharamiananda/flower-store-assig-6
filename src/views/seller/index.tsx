@@ -25,7 +25,7 @@ const {data}=useGetMeQuery<{data:{data:IUserInfo}}>(undefined);
 
 const {data:dahboardInfo}=useGetMyDashbaordQuery(undefined,{skip:!data?.data?._id});
 
-console.log('dahboardInfo', dahboardInfo)
+
 
   return (
     <div>

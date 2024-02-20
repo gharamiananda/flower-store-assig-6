@@ -5,14 +5,6 @@ import Progress from "components/progress";
 import { MdCancel, MdCheckCircle, MdLocalFireDepartment, MdOutlineError } from "react-icons/md";
 import { RiDeleteBin5Line } from "react-icons/ri";
 
-import {
-  createColumnHelper,
-  flexRender,
-  getCoreRowModel,
-  getSortedRowModel,
-  SortingState,
-  useReactTable,
-} from "@tanstack/react-table";
 import Checkbox from "components/checkbox";
 import { useDeleteProductMutation, useGetProductsQuery } from "../../../../redux/features/product/productApi";
 import useDebounce from "hooks/useDebounce";
@@ -74,7 +66,6 @@ type TProdctList={
    isFetching:boolean
 }
 
-const columnHelper = createColumnHelper<ISingleProduct>();
 
 // const columns = columnsDataCheck;
 export default function CouponList() {

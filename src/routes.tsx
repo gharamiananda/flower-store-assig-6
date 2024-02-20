@@ -28,6 +28,7 @@ import CouponTable from "views/manager/coupon/CouponTable";
 import CreateSale from "views/seller/sales/components/CreateSale";
 import SellerDashboard from "views/seller";
 import SalesList from "views/seller/sales/components/SalesList";
+import ManagerDashboard from "views/admin/default";
 // import CreateCoupon from "views/manager/coupon/components/CreateCoupon";
 
 const customerRoutes = [
@@ -90,7 +91,7 @@ const managerRroutes = [
     layout: "/manager",
     path: "dashboard",
     icon: <MdHome className="h-6 w-6" />,
-    component: <MainDashboard />,
+    component: <ManagerDashboard />,
   },
   {
     name: "Create Seller",

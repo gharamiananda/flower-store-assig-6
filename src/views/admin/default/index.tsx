@@ -16,7 +16,7 @@ import { IUserInfo } from "types/global.types";
 // import tableDataCheck from "./variables/tableDataCheck";
 // import tableDataComplex from "./variables/tableDataComplex";
 
-const SellerDashboard = () => {
+const ManagerDashboard = () => {
 
 
 
@@ -78,4 +78,4 @@ console.log('dahboardInfo', dahboardInfo)
   );
 };
 
-export default SellerDashboard;
+export default ManagerDashboard;
