@@ -146,6 +146,10 @@ export default function ProductList() {
     const [productTypes,setproductTypes]=useState<string[]>([]);
     const [productSizes,setproductSizes]=useState<string[]>([]);
     const [productFragnences,setproductFragnences]=useState<string[]>([]);
+    // const [productMinPrice,setproductMinPrice]=useState<string>('');
+    // const [productMaxPrice,setproductMaxPrice]=useState<string>(');
+
+
     const [productPrices,setproductPrices]=useState<undefined|{minPrice:number,maxPrice:number}>(undefined);
   console.log(productSizes,'productSizes')
   

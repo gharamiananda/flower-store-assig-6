@@ -2,7 +2,7 @@ import Card from 'components/card'
 import Checkbox from 'components/checkbox'
 import { useGetFilterOptionsQuery } from '../../../../redux/features/product/productApi';
 import { IFilterData } from './ProductList';
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box } from '@chakra-ui/react';
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button } from '@chakra-ui/react';
 import { MdOutlinePauseCircleOutline } from 'react-icons/md';
 import { IoAddCircleOutline } from 'react-icons/io5';
 import React from 'react';
@@ -25,7 +25,7 @@ type TProps={
 
 
 
-const FilterOptions :React.FC<TProps>= ({setproductPrices,setproductSizes,setproductFragnences,setproductTypes,productSizes,productFragnences,productTypes,setFromDates,settoDates}) => {
+const FilterOptions :React.FC<TProps>= ({setproductPrices,setproductSizes,setproductFragnences,setproductTypes,productSizes,productFragnences,productTypes,setFromDates,settoDates,productPrices}) => {
 
 
   const {data}=useGetFilterOptionsQuery<{data:{data:IFilterData}}>(undefined);
@@ -49,6 +49,16 @@ const FilterOptions :React.FC<TProps>= ({setproductPrices,setproductSizes,setpro
 
 <Card>
   <div className="p-3">
+
+    {/* <Button className='bg-white text-blueSecondary px-3 mb-3 py-2 rounded-lg'  onClick={()=>{
+      setproductPrices(undefined);
+      setproductSizes([]);
+      setproductFragnences([]);
+      setproductTypes([]);
+      settoDates(null);
+      setFromDates(null)
+
+    }}>Clear all filter</Button> */}
 
     <div className="mb-4">
 
@@ -154,9 +164,12 @@ const FilterOptions :React.FC<TProps>= ({setproductPrices,setproductSizes,setpro
     <Checkbox
         // defaultChecked={info.getValue()[1]}
         // checked={selectedRowKeys.includes(info.getValue())}
+        checked={productPrices?.minPrice===10}
         colorScheme="brandScheme"
         me="10px"
         onChange={() => {
+         
+          setproductPrices({maxPrice:99, minPrice:10})
           // const seletedId=info.getValue()
           // setSelectedRowKeys(prev=>prev.includes(tData?._id) ? prev.filter(it=>it!==tData?._id):[...prev,tData?._id])
         }}
@@ -174,7 +187,14 @@ const FilterOptions :React.FC<TProps>= ({setproductPrices,setproductSizes,setpro
     // checked={selectedRowKeys.includes(info.getValue())}
     colorScheme="brandScheme"
     me="10px"
+    checked={productPrices?.minPrice===100}
+
     onChange={() => {
+
+   
+      setproductPrices({maxPrice:499, minPrice: 100})
+
+
       // const seletedId=info.getValue()
       // setSelectedRowKeys(prev=>prev.includes(tData?._id) ? prev.filter(it=>it!==tData?._id):[...prev,tData?._id])
     }}
@@ -192,7 +212,11 @@ const FilterOptions :React.FC<TProps>= ({setproductPrices,setproductSizes,setpro
     // checked={selectedRowKeys.includes(info.getValue())}
     colorScheme="brandScheme"
     me="10px"
+    checked={productPrices?.minPrice===500}
+
     onChange={() => {
+      setproductPrices({maxPrice:1000, minPrice:500})
+
       // const seletedId=info.getValue()
       // setSelectedRowKeys(prev=>prev.includes(tData?._id) ? prev.filter(it=>it!==tData?._id):[...prev,tData?._id])
     }}
